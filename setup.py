@@ -4,11 +4,11 @@
 """setup.py for graypy"""
 
 import codecs
+import os
 import re
 import sys
-import os
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 from setuptools.command.test import test
 
 
@@ -75,15 +75,17 @@ setup(
     include_package_data=True,
     zip_safe=False,
     tests_require=[
-        "pytest>=2.8.7,<4.0.0",
-        "pytest-cov<=2.6.0,<3.0.0",
+        "pytest>=8.3.1,<9.0.0",
+        "pytest-cov<=5.0.0,<6.0.0",
         "pylint>=1.9.3,<2.0.0",
         "mock>=2.0.0,<3.0.0",
         "requests>=2.20.1,<3.0.0",
-        "amqplib>=1.0.2,<2.0.0",
+        "amqp>=5.2.0,<6.0.0",
     ],
     extras_require={
-        "amqp": ["amqplib @ git+https://github.com/adaptivefrontier/py-amqplib.git#egg=amqplib"],
+        "amqp": [
+            "amqp==5.2.0",
+        ],
         "docs": [
             "sphinx>=2.1.2,<3.0.0",
             "sphinx_rtd_theme>=0.4.3,<1.0.0",

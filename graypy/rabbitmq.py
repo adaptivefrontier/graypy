@@ -8,15 +8,16 @@ import json
 from logging import Filter
 from logging.handlers import SocketHandler
 
-from amqplib import client_0_8 as amqp  # pylint: disable=import-error
+import amqp
 
 from graypy.handler import BaseGELFHandler
 
 try:
-    from urllib.parse import urlparse, unquote
+    from urllib.parse import unquote, urlparse
 except ImportError:
-    from urlparse import urlparse
     from urllib import unquote
+
+    from urlparse import urlparse
 
 
 _ifnone = lambda v, x: x if v is None else v
